@@ -1,4 +1,4 @@
-from flask_login import user_accessed, user_logged_in
+
 import bruteForce.apiTest as apiTest
 #import exportFiles.exportFiles as eF
 import os
@@ -23,7 +23,7 @@ def main():
                 print("----------------------------------------------------------------------------------------------------------------------\n"
                 "Welcome to the API Discovery Help Page! Here are the list of commands:\n"
                 "-b         Brute Force Method using a specified wordlist and url\n"
-                #"-o         Output to a readable csv/excel/pdf file. (Can only be done after using the other methods of enumeration\n"
+                "-o         Output to a readable csv/excel/pdf file. (Can only be done after using the other methods of enumeration\n"
                 "-t         Using tools (Subfinder,Nuclei etc) to recursively find and test the web links/api links found (if any)\n"
                 "-q         To quit the program\n"
                 "----------------------------------------------------------------------------------------------------------------------\n")
