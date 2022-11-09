@@ -1,12 +1,17 @@
 
-import bruteForce.apiTest as apiTest
+#import bruteForce.apiTest as apiTest
 #import exportFiles.exportFiles as eF
 import os
 import sys
 import toolsOutput.testingIntegration as toolsIntegration
+import subprocess
+from subprocess import run
 
 def main():
-
+    #check for dependancies installed on the system.
+    commandDependancies = ["./dependancyChecker.sh"]
+    dependancyChecker = subprocess.Popen(commandDependancies,stdout=subprocess.PIPE).communicate()[0]
+    ###
     print("Welcome to API Endpoint Discovery!\n"
         "This program is made and distributed by BDO Advisory.\n"
         "\n"
@@ -52,6 +57,9 @@ def main():
         except KeyboardInterrupt:
             print("\nThe program has stopped unexpectedly! Please check your inputs and ensure that your inputs are valid(unless you ctrl c then thats fine).")
             flag = True
+            #clean up on event of crashing
+            commandCleanUp = ["rm","-r","toolsOutput/outputFiles/"]
+            cleanUp = subprocess.Popen(commandCleanUp,stdout=subprocess.PIPE).communicate()[0]
     return None
 
 #run main function if main function is found 
